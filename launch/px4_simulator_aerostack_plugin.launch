@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name= "namespace"					        default = "drone1"/>
+    <arg name= "estimated_pose_topic" 	            default = "self_localization/pose"/>
+    <arg name= "estimated_speed_topic" 	            default = "self_localization/speed"/>
+    
+    <arg name= "mavros_pose_topic" 	                default = "mavros/local_position/pose"/>
+    <arg name= "mavros_speed_topic" 	            default = "mavros/local_position/velocity_local "/>
+    
+
+
+    <group ns="$(arg namespace)">
+        <param name= "~namespace"                        value="$(arg namespace)"                       type="str" />
+        <param name= "~estimated_pose_topic"             value="$(arg estimated_pose_topic)"            type="str" />
+        <param name= "~estimated_speed_topic"            value="$(arg estimated_speed_topic)"           type="str" />
+        <param name= "~mavros_pose_topic" 	             value="$(arg mavros_pose_topic) "              type="str"/>
+        <param name= "~mavros_speed_topic" 	             value="$(arg mavros_speed_topic) "             type="str"/>
+    
+        <node name="px4_simulator_aerostack_plugin" pkg="px4_simulator_aerostack_plugin" type="px4_simulator_aerostack_plugin_node" output="screen"/>
+    </group>
+</launch>
+
