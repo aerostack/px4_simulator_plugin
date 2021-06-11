@@ -39,7 +39,7 @@ void Px4AerostackPlugin::ownSetUp()
 	tf2_fix_transforms_.clear();
 	tf2_fix_transforms_.emplace_back(getTransformation("map","odom",0,0,0,0,0,0));
 	// tf2_fix_transforms_.emplace_back(getTransformation("base_link","camera_frame",-CAMERA_OFFSET_X,-CAMERA_OFFSET_Y,-CAMERA_OFFSET_Z,0,0,0));
-	tf2_fix_transforms_.emplace_back(getTransformation("base_link","camera_frame",CAMERA_OFFSET_X,CAMERA_OFFSET_Y,CAMERA_OFFSET_Z,0,0,0));
+    tf2_fix_transforms_.emplace_back(getTransformation("base_link","camera_link",CAMERA_OFFSET_X,CAMERA_OFFSET_Y,CAMERA_OFFSET_Z,M_PI/2,M_PI,M_PI/2));
 
 
 	odom_to_base_link_transform_.header.frame_id = "odom";
